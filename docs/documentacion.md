@@ -172,7 +172,7 @@ Ambos grupos:
 - Dashboard analítico avanzado con métricas agregadas o visualización detallada (por edad, género, residencia, tipo de oferta, etc.).
 - Exportación de reportes en PDF de estadíticas
 - Exportación de datos a borrar de la base de datos en CSV. 
-- Notificaciones o recordatorios automáticos para seguimientos.
+
 
 > Nota: Estas funcionalidades están previstas para una **Fase 2** posterior al despliegue y validación del MVP.
 
@@ -193,13 +193,12 @@ Ambos grupos:
 | Dashboard con visualización de seguimientos activos y registro de novedades   |    ✅    |            |
 | Visualización del uso de almacenamiento (capacidad y alertas manuales)        |    ✅    |            |
 | Depuración manual de usuarios y ofertas (acceso directo a base de datos)      |    ✅    |            |
-| Notificaciones automáticas (recordatorios de seguimiento, etc.)               |         |      ✅     |
-| Extracción automática de metadatos desde enlaces de ofertas                   |         |      ✅     |
-| Dashboard analítico avanzado (segmentación por género, edad, ubicación, etc.) |         |      ✅     |
-| Creación de usuarios exploradores desde el rol de administrador               |         |      ✅     |
-| Generación de reportes en PDF (estadísticas, seguimientos, etc.)              |         |      ✅     |
-| Generación de reportes en CSV (usuarios inactivos, ofertas vencidas, etc.)    |         |      ✅     |
-| Etiquetado y categorización de ofertas mediante palabras clave                |         |      ✅     |
+| Extracción automática de metadatos desde enlaces de ofertas                   |          |      ✅    |
+| Dashboard analítico avanzado (segmentación por género, edad, ubicación, etc.) |          |      ✅    |
+| Creación de usuarios exploradores desde el rol de administrador               |          |      ✅    |
+| Generación de reportes en PDF (estadísticas, seguimientos, etc.)              |          |      ✅    |
+| Generación de reportes en CSV (usuarios inactivos, ofertas vencidas, etc.)    |          |      ✅    |
+| Etiquetado y categorización de ofertas mediante palabras clave                |          |      ✅    |
 
 
 ## Restricciones de Negocio
@@ -772,14 +771,14 @@ Este diagrama representa las entidades principales del sistema, sus relaciones y
 
 
 
-### SiteMap -> **Necesita correccion**
+### SiteMap 
 
 Este mapa de sitio representa la arquitectura de navegación propuesta del Portal de Oportunidades, diferenciando los flujos por tipo de usuario (Explorador, Editor, Orientador, Administrador) y agrupando las funcionalidades clave por módulo funcional.
 
 ![SiteMap](../docs/Anexos/SiteMap.png)
 
 
-## Wireframes -> **Necesita correccion**
+## Wireframes
 [Wireframes](../docs/Anexos/Wireframes.pdf) -> Pdf 
 O ver anexo en la carpeta /docs/Anexos/Wireframes.pdf
 
@@ -793,17 +792,12 @@ O ver anexo en la carpeta /docs/Anexos/Wireframes.pdf
 * Justificacion de las decisiones
 * Canales de despliegue
   
-## Estructura Fronted
-* Componentes de UI principales 
-* Esquemas de rutas 
-* Comunicacion con el Back (REST)
-* Diseño responsive 
+## Fronted
+* Diseño, e interacciones: 
+[Diseño en Figma](https://www.figma.com/proto/8KKAZVbvw4FvoJIFfuDScI/Portal-de-oportunidades---landing?node-id=1-2&t=dM2dy471ELcA6Lpv-1)
+
 * Framework (tailwind)
-### Diseño visual 
-* Sistema de diseño (Bootstrap)
-* **Figma** -> ( Diseño de interacciones, guia de estilos las puedo poner aquí)
-* Componentes reutilizables
-* Guia de estilos
+
 #### Guía de Estilos (UI Design System)
 
 #####  Paleta de Colores (HEX)
@@ -860,20 +854,6 @@ O ver anexo en la carpeta /docs/Anexos/Wireframes.pdf
 
 ---
 
-##### Pautas de Espaciado y Consistencia Visual
-
-- **Margen general:** `max-w-screen-lg`, centrado en `mx-auto`
-- **Padding exterior:** `px-4` para móviles, `px-8` en pantallas grandes
-- **Espaciado entre secciones:** mínimo `mb-8`
-- **Iconografía:** Estilo lineal (`Heroicons`, `Lucide`, o SVGs simples)
-- **Sombra consistente:** usar `shadow-sm` para componentes pequeños, `shadow-md` para tarjetas y modales
-
-
-
-### Diseño de interacciones 
-* Comportamientos esperados 
-* Microinteracciones
-* Flujo de Usuario Accesibilidad 
   
 ## Backend 
 * Rutas y Endpoints 
@@ -882,19 +862,19 @@ O ver anexo en la carpeta /docs/Anexos/Wireframes.pdf
 * Valdiación y Manejo de Errores 
 * Servises reutilizables
 
-### Diseño de la Base de datos -> Muy necesario 
+### Diseño de la Base de datos 
 * Modelo E/R 
 * Normalización 
 * Justificación de decisiones 
 * politicas de integridad referncial 
   
-### Seguridad y Validaciones -> Muy necesario 
+### Seguridad y Validaciones 
 * Validadciones de Backend 
 * Hashinng 
 * Control de acceso 
 * Protección contra ataques comunes 
 
-### Pruebas -> Muy necesario 
+### Pruebas 
 * Estrategia de pruebas 
 | Tipo de prueba         | Herramienta   | ¿Qué valida?                                                        |
 | ---------------------- | ------------- | ------------------------------------------------------------------- |
