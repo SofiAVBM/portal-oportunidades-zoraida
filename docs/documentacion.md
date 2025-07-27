@@ -574,7 +574,7 @@ El diagrama de contexto representa el sistema como una entidad única y autónom
 
 Este diagrama representa las entidades principales del sistema, sus relaciones y la lógica de negocio mediante servicios auxiliares (ReportService, SecurityService y CleanupService). Refleja los requisitos funcionales y no funcionales descritos en esta documentación. Los métodos mostrados en las clases indican funcionalidades esperadas o implementadas para el correcto funcionamiento del portal web.
  
-![Diagrama de clases](../docs/Anexos/UML_de_Clases.png)
+![Diagrama de clases](../docs/Anexos/UML_de_Clases/UML_de_Clases.png)
 
 #### Descripcion de Clases -> **Me falta aclarear las relacionesy corregir los metodos en el diagrama**
 
@@ -804,8 +804,8 @@ O ver anexo en la carpeta /docs/Anexos/Wireframes.pdf
 
 | Rol del color | Nombre     | Código HEX |
 |---------------|------------|------------|
-| Principal     | Azul Zoraida     | #053479   |
-| Énfasis       | Naranja feo   | #FF7E00   |
+| Principal     | Azul Zoraida      | #053479   |
+| Énfasis       | Naranja      | #FF7E00   |
 | Secundario    | Morado suave     | #6B4EFF   |
 | Fondo claro   | Gris neutro 1    | #F8F9FA   |
 | Fondo oscuro  | Gris neutro 2    | #E5E7EB   |
@@ -864,10 +864,44 @@ O ver anexo en la carpeta /docs/Anexos/Wireframes.pdf
 
 ### Diseño de la Base de datos 
 * Modelo E/R 
-* Normalización 
-* Justificación de decisiones 
-* politicas de integridad referncial 
+
+  ![Diagrama de Entidad-Relacion](/docs/Anexos/Diagrama%20ER.png)
+* Modelo Relacional
+   
+  [Modelo relacional](/docs/Anexos/Modelo%20Relacional/modelo_relacional.xlsx)
+
+
+* Normalizacióm
   
+  La normalización se realizó priorizando las limitaciones de almacenamiento, estimando una carga de 200 usuarios, 500 ofertas, tres seguimientos por usuario y diez novedades por seguimiento. El diseño fue llevado hasta la Tercera Forma Normal (3FN), garantizando la eliminación de redundancias y optimizando la integridad referencial.
+
+* Justificación de las Decisiones de Diseño
+  1. Claves Primarias (PK) y Foráneas (FK):
+  Todas las tablas utilizan un identificador numérico autoincremental como clave primaria, lo que optimiza el espacio en disco y simplifica las relaciones entre entidades.
+
+  En la tabla Usuario, se optó por un ID autoincremental en lugar del número de documento, minimizando el tamaño de almacenamiento y evitando sobrecargas en entornos gratuitos.
+
+  Los campos numero_documento y correo se definieron como UNIQUE para garantizar la unicidad de estos datos y prevenir duplicidades.
+
+  2. Uso de tipos ENUM:
+  Se emplearon ENUM en campos con listas cortas y estables (tipo_documento, genero, rol, tipo_oferta, estado, etc.), reduciendo el uso de almacenamiento a 1 byte por fila y mejorando la consistencia de los datos.
+
+  3. Tablas especializadas para Oferta:
+  Con el fin de evitar valores NULL innecesarios en la tabla principal, se diseñaron tablas derivadas (OfertaEmpleo, OfertaPractica, OfertaCurso, OfertaBeca), cada una con los atributos específicos de su tipo. Esta estrategia permite una mejor organización y flexibilidad ante cambios futuros.
+
+  4. Manejo de la tabla Usuario:
+  Se permite el uso de valores NULL en varios atributos para facilitar la creación de registros de usuarios con rol de administrador, quienes no requieren completar toda la información. No obstante, en el frontend se valida que los usuarios con rol de explorador deban completar todos los campos obligatorios.
+
+  5. Instituciones:
+  Se normalizó la entidad Institución en una tabla independiente para prevenir errores de escritura repetitiva y permitir la integración de metadatos adicionales a futuro.
+
+  6. Logs históricos:
+  La tabla Log mantiene la integridad histórica del sistema. Si un Usuario u Oferta son eliminados, las referencias se establecen en NULL, preservando los eventos registrados.
+
+  7. Seguimientos y novedades:
+  Se aplican relaciones en cascada (ON DELETE CASCADE) para mantener la consistencia referencial: la eliminación de un usuario conlleva la eliminación automática de sus seguimientos y novedades asociadas.
+
+    
 ### Seguridad y Validaciones 
 * Validadciones de Backend 
 * Hashinng 
