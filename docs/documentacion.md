@@ -210,7 +210,7 @@ Ambos grupos:
   - Manejo de operaciones concurrentes (colas de acceso) sin comprometer integridad de datos.
 - No se utilizarán librerías o servicios externos que accedan, procesen o transmitan datos sensibles.
 - Se deben implementar **medidas de seguridad y protección de datos personales**, incluyendo encriptación de contraseñas, validación de sesiones y consentimiento informado. ( En este link se pueden ver las políticas de datos actuales -> https://fundacionzoraida.org/politicas/ )
-- La base de datos (MySQL o similar) deberá monitorearse activamente por el administrador para evitar superar el límite gratuito de almacenamiento.
+- La base de datos (MySQL) deberá monitorearse activamente por el administrador para evitar superar el límite gratuito de almacenamiento.
 
 > Nota: No se utilizará ningún sistema de notificaciones internas en el MVP, excepto por una alerta manual al alcanzar e 80% de capacidad de almacenamiento.
 
@@ -785,7 +785,7 @@ O ver anexo en la carpeta /docs/Anexos/Wireframes.pdf
 
 # 2.3 Diseño  -> **Revisión de elementos indispensables en el diseño **
 
-## Arquitectura -> muy necesario 
+## Arquitectura 
 * Diagrama de componetes 
 * Tecnologías elegidas 
   - Fronted, Backend, Base de datos
@@ -906,8 +906,7 @@ O ver anexo en la carpeta /docs/Anexos/Wireframes.pdf
 * Validadciones de Backend 
 * Hashinng 
 * Control de acceso 
-* Protección contra ataques comunes 
-
+  
 ### Pruebas 
 * Estrategia de pruebas 
 | Tipo de prueba         | Herramienta   | ¿Qué valida?                                                        |
